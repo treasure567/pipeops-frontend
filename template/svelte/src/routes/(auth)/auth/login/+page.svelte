@@ -1,7 +1,19 @@
 <script>
     import { signin, loading } from '$lib/auth'
 
+    let isLoading = false;
 
+    loading.set(true);
+
+    loading.subscribe((value) => {
+    isLoading = value;
+    });
+
+    let email = 'uvietoboretreasure@gmail.com', password = '123456789';
+
+    const handleSignin = async () => {
+        await signin(email, password)
+    }
 </script>
 <body class="start">
     <main>
@@ -12,28 +24,29 @@
                         <div class="col-md-12">
                             <div class="content">
                                 <h1>Sign in to Swipe</h1>
-                                <div class="third-party">
-                                    <button class="btn item bg-blue">
-                                        <i class="material-icons">pages</i>
-                                    </button>
-                                    <button class="btn item bg-teal">
-                                        <i class="material-icons">party_mode</i>
-                                    </button>
-                                    <button class="btn item bg-purple">
-                                        <i class="material-icons">whatshot</i>
-                                    </button>
-                                </div>
-                                <p>or use your email account:</p>
-                                <form>
+                                <form id="formAuthentication" on:submit|preventDefault={handleSignin}>
                                     <div class="form-group">
-                                        <input type="email" id="inputEmail" class="form-control" placeholder="Email Address" required>
+                                        <input type="email" id="inputEmail" class="form-control" placeholder="johndoe@example.com" bind:value={email} required>
                                         <button class="btn icon"><i class="material-icons">mail_outline</i></button>
                                     </div>
                                     <div class="form-group">
-                                        <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+                                        <input type="password" id="inputPassword" class="form-control" placeholder="Password" bind:value={password} required>
                                         <button class="btn icon"><i class="material-icons">lock_outline</i></button>
                                     </div>
+                                    {#if isLoading}
+                                    <div class="btn w-100">
+                                        <!-- Wave -->
+                                        <div class="sk-wave sk-primary">
+                                            <div class="sk-wave-rect"></div>
+                                            <div class="sk-wave-rect"></div>
+                                            <div class="sk-wave-rect"></div>
+                                            <div class="sk-wave-rect"></div>
+                                            <div class="sk-wave-rect"></div>
+                                        </div>
+                                    </div>
+                                    {:else}
                                     <button type="submit" class="btn button" formaction="index-2.html">Sign In</button>
+                                    {/if}
                                     <div class="callout">
                                         <span>Don't have account? <a href="sign-up.html">Create Account</a></span>
                                     </div>
