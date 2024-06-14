@@ -3,10 +3,10 @@
 
     let isLoading = false;
 
-    loading.set(true);
+    loading.set(false);
 
     loading.subscribe((value) => {
-    isLoading = value;
+        isLoading = value;
     });
 
     let email = 'uvietoboretreasure@gmail.com', password = '123456789';
@@ -34,16 +34,10 @@
                                         <button class="btn icon"><i class="material-icons">lock_outline</i></button>
                                     </div>
                                     {#if isLoading}
-                                    <div class="btn w-100">
-                                        <!-- Wave -->
-                                        <div class="sk-wave sk-primary">
-                                            <div class="sk-wave-rect"></div>
-                                            <div class="sk-wave-rect"></div>
-                                            <div class="sk-wave-rect"></div>
-                                            <div class="sk-wave-rect"></div>
-                                            <div class="sk-wave-rect"></div>
-                                        </div>
-                                    </div>
+                                    <button type="submit" class="btn btn-primary btn-block button" id="signInBtn" formaction="index-2.html">
+                                        <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                                        <span class="spinner-text">Signing In...</span>
+                                    </button>
                                     {:else}
                                     <button type="submit" class="btn button" formaction="index-2.html">Sign In</button>
                                     {/if}
