@@ -36,6 +36,5 @@ exports.loginUser = async(req, res) => {
         }
     }
     const userWithoutHiddenFields = _.pick(user.toObject(), userDetail());
-
     return response(res, 200, { status: true, message: "Authentication successful", token, data: userWithoutHiddenFields, errors });
 }
