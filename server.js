@@ -55,6 +55,3 @@ const start = async () => {
 }
 
 start();
-
-
-require("./src/routes/api/v1/authRoutes.js")(app);
