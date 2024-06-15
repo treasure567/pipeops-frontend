@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+		<meta charset="utf-8">
+		<title>MediQ - Your Online Medical Consultation Platform</title>
+		<meta name="description"
+			content="MediQ offers AI-powered medication advice and live doctor consultations. Get expert medical guidance from the comfort of your home. Join MediQ today!">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<!-- Bootstrap core CSS -->
+		<link href="assets/css/lib/bootstrap.min.css" type="text/css" rel="stylesheet">
+		<!-- Swipe core CSS -->
+		<link href="assets/css/mediq.min.css" type="text/css" rel="stylesheet">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+			integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+			crossorigin="anonymous" referrerpolicy="no-referrer" /><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+		<!-- Favicon -->
+		<link href="assets/img/favicon.png" type="image/png" rel="icon">
+
+	</head>
+	<body>
+		<main>
+			<div class="layout">
+				<!-- Start of Navigation -->
+				<div class="navigation">
+					<div class="container">
+						<div class="inside">
+							<div class="nav nav-tab menu">
+								<button class="btn"><a href="#settings" data-toggle="tab"><img class="avatar-xl" src="assets/img/avatars/avatar-male-1.jpg" alt="avatar"></a></button>
+								<a href="#discussions" data-toggle="tab" class="active"><i class="material-icons active">chat_bubble_outline</i></a>
+								
+								<button class="btn power" onclick="visitPage();"><i  class="material-icons">power_settings_new	</i></button>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- End of Navigation -->
+				<!-- Start of Sidebar -->
+				<div class="sidebar" id="sidebar">
+					<div class="container">
+						<div class="col-md-12">
+							<div class="tab-content">
+							
+								<!-- Start of Discussions -->
+								<div id="discussions" class="tab-pane fade active show">
+									<div class="search">
+										<form class="form-inline position-relative">
+											<input type="search" class="form-control" id="conversations" placeholder="Search for conversations...">
+											<button type="button" class="btn btn-link loop"><i class="material-icons">search</i></button>
+										</form>
+									</div>
+													
+									<div class="discussions">
+										<h1>Discussions</h1>
+										<div class="list-group" id="chats" role="tablist">
+											<a href="#list-chat" class="filterDiscussions all unread single " id="list-chat-list" data-toggle="list" role="tab">
+												<img class="avatar-md" src="assets/img/avatars/doctor.jpg" data-toggle="tooltip" data-placement="top" title="MediQ AI" alt="avatar">
+												<div class="status">
+													<i class="material-icons online">fiber_manual_record</i>
+												</div>
+												
+												<div class="data">
+													<h5>MediQ AI</h5>
+													<span>Mon</span>
+													<p>A new feature has been updated to your account. Check it out...</p>
+												</div>
+											</a>									
+											<a href="#list-empty" class="filterDiscussions all unread single" id="list-empty-list" data-toggle="list" role="tab">
+												<img class="avatar-md" src="assets/img/avatars/drug_shop.jpg" data-toggle="tooltip" data-placement="top" title="Michael" alt="avatar">
+												<div class="status">
+													<i class="material-icons offline">fiber_manual_record</i>
+												</div>
+												
+												<div class="data">
+													<h5>Pharm Explorer</h5>
+													<span>Sun</span>
+													<p>Which drug are you looking for?</p>
+												</div>
+											</a>	
+										</div>
+									</div>
+								</div>
+								<!-- End of Discussions -->
+
+								<!-- Start of Settings -->
+								<div class="tab-pane fade" id="settings">			
+									<div class="settings">
+										<div class="profile">
+											<img class="avatar-xl" src="assets/img/avatars/avatar-male-1.jpg" alt="avatar">
+											<h1><a href="#">Michael Knudsen</a></h1>
+											<span>Helena, Montana</span>
+											<div class="stats">
+												<div class="item">
+													<h2>A+</h2>
+													<h3>Blood Group</h3>
+												</div>
+												<div class="item">
+													<h2>O+</h2>
+													<h3>Genotype</h3>
+												</div>
+												<div class="item">
+													<h2>22 Yrs</h2>
+													<h3>Age</h3>
+												</div>
+											</div>
+										</div>
+										<div class="categories" id="accordionSettings">
+											<h1>Settings</h1>
+											<div class="content">
+												<div class="upload">
+													<div class="data">
+														<img class="avatar-xl" src="assets/img/avatars/avatar-male-1.jpg" id="imagePreview" alt="image">
+														<label>
+															<input type="file" accept="image/jpeg, image/png, image/jpg" id="imageInput" style="opacity: 0;">
+															<span class="btn button">Upload avatar</span>
+														</label>
+													</div>
+													<p>For best results, use an image at least 256px by 256px in either .jpg or .png format!</p>
+												</div>
+												<form>
+													<div class="field mt-4">
+														<label for="firstName">First name <span>*</span></label>
+														<input type="text" class="form-control" id="firstName" placeholder="First name" value="Michael" required>
+													</div>
+													<div class="field mt-3">
+														<label for="lastName">Last name <span>*</span></label>
+														<input type="text" class="form-control" id="lastName" placeholder="Last name" value="Knudsen" required>
+													</div>
+													<div class="field mt-3">
+														<label for="bloodGroup">Blood Group <span>*</span></label>
+														<input type="text" class="form-control" id="bloodGroup" placeholder="Blood Group" value="A+" required>
+													</div>
+													<div class="field mt-3">
+														<label for="genotype">Genotype <span>*</span></label>
+														<input type="text" class="form-control" id="genotype" placeholder="Genotype" value="O+" required>
+													</div>
+													<div class="field mt-3">
+														<label for="dateOfBirth">Date of Birth <span>*</span></label>
+														<input type="date" class="form-control" id="dateOfBirth" required>
+													</div>
+													<div class="field mt-3">
+														<label for="gender">Gender <span>*</span></label>
+														<select class="form-control" id="gender" required>
+															<option value="">Select Gender</option>
+															<option value="male">Male</option>
+															<option value="female">Female</option>
+															<option value="other">Other</option>
+														</select>
+													</div>
+													<div class="field mt-3">
+														<label for="phone">Phone Number <span>*</span></label>
+														<input type="tel" class="form-control" id="phone" placeholder="Enter your phone number" required>
+													</div>
+													<div class="field mt-3">
+														<label for="email">Email <span>*</span></label>
+														<input type="email" class="form-control" id="email" placeholder="Enter your email address" value="michael@gmail.com"
+															required>
+													</div>
+													<div class="field mb-5">
+														<label for="address">Address <span>*</span></label>
+														<input type="text" class="form-control" id="address" placeholder="Enter your address"
+															value="1234 Main St, Helena, Montana" required>
+													</div>
+													<button type="submit" class="btn button w-100 mb-5">Save Changes</button>
+												</form>
+											</div>
+										
+										</div>
+									</div>
+								</div>
+								<!-- End of Settings -->
+
+								<div class="tab-pane fade" id="profile">
+									<div class="settings">
+										<div class="profile">
+											<img class="avatar-xl" src="assets/img/avatars/doctor.jpg" alt="avatar">
+											<h1><a href="#">MediQ AI</a></h1>
+											<span>AI Diagnosis Assistance</span>
+											<div class="stats">
+												<div class="item">
+													<h2>Male</h2>
+													<h3>Gender</h3>
+												</div>
+												<div class="item">
+													<h2>Doctor</h2>
+													<h3>Role</h3>
+												</div>
+												
+											</div>
+										</div>
+										<div class="categories" id="accordionSettings">
+											<h1>Bio</h1>
+											<div class="content mb-4">
+												<p>I'm MediQ AI, your trusted companion in the realm of healthcare. With a mission to provide AI-powered medication
+													advice and seamless live doctor consultations, I strive to bring expert medical guidance directly to you. Empowering
+													you to make informed decisions and access top-notch healthcare services from the convenience of your home is my
+													ultimate goal.</p>
+												
+												<p class="pt-3">Let me be your guide to a healthier and more informed lifestyle.</p>
+											</div>
+								
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- End of Sidebar -->
+			
+			
+				<div class="main">
+					<div class="tab-content" id="nav-tabContent">
+						<!-- Start of Babble -->
+						<div class="babble tab-pane fade active show" id="list-chat" role="tabpanel" aria-labelledby="list-chat-list">
+							<!-- Start of Chat -->
+							<div class="chat" id="chat1">
+								<div class="top">
+									<div class="container">
+										<div class="col-md-12">
+											<div class="inside">
+												<a href="#"><img class="avatar-md" src="assets/img/avatars/doctor.jpg" data-toggle="tooltip" data-placement="top" title="Keith" alt="avatar"></a>
+												<div class="status">
+													<i class="material-icons online">fiber_manual_record</i>
+												</div>
+												<div class="data">
+													<h5><a href="#">MediQ AI</a></h5>
+													<span>Active now</span>
+												</div>
+												<button class="btn d-md-block d-none"><a href="#profile" data-toggle="tab"><i class="material-icons md-30">info</i></a></button>
+												
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="content" id="content">
+									<div class="container">
+										<div class="col-md-12">
+											<div class="date">
+												<hr>
+												<span>Yesterday</span>
+												<hr>
+											</div>
+											<div class="message">
+												<img class="avatar-md" src="assets/img/avatars/doctor.jpg" data-toggle="tooltip" data-placement="top" title="Keith" alt="avatar">
+												<div class="text-main">
+													<div class="text-group">
+														<div class="text">
+															<p>We've got some killer ideas kicking about already.</p>
+														</div>
+													</div>
+													<span>09:46 AM</span>
+												</div>
+											</div>
+											<div class="message me">
+												<div class="text-main">
+													<div class="text-group me">
+														<div class="text me">
+															<p>Can't wait! How are we coming along with the client?</p>
+														</div>
+													</div>
+													<span>11:32 AM</span>
+												</div>
+											</div>
+											<div class="message">
+												<img class="avatar-md" src="assets/img/avatars/doctor.jpg" data-toggle="tooltip" data-placement="top" title="Keith" alt="avatar">
+												<div class="text-main">
+													<div class="text-group">
+														<div class="text">
+															<p>Coming along nicely, we've got a draft for the client quarries completed.</p>
+														</div>
+													</div>
+													<span>02:56 PM</span>
+												</div>
+											</div>
+											<div class="message me">
+												<div class="text-main">
+													<div class="text-group me">
+														<div class="text me">
+															<p>Roger that boss!</p>
+														</div>
+													</div>
+													<div class="text-group me">
+														<div class="text me">
+															<p>I have already started gathering some stuff for the mood boards, excited to start!</p>
+														</div>
+													</div>
+													<span>10:21 PM</span>
+												</div>
+											</div>
+											<div class="message">
+												<img class="avatar-md" src="assets/img/avatars/doctor.jpg" data-toggle="tooltip" data-placement="top" title="Keith" alt="avatar">
+												<div class="text-main">
+													<div class="text-group">
+														<div class="text">
+															<p>Great start guys, I've added some notes to the task. We may need to make some adjustments to the last couple of items - but no biggie!</p>
+														</div>
+													</div>
+													<span>11:07 PM</span>
+												</div>
+											</div>
+											<div class="date">
+												<hr>
+												<span>Today</span>
+												<hr>
+											</div>
+											<div class="message me">
+												<div class="text-main">
+													<div class="text-group me">
+														<div class="text me">
+															<p>Well done all. See you all at 2 for the kick-off meeting.</p>
+														</div>
+													</div>
+													<span>10:21 PM</span>
+												</div>
+											</div>
+											<div class="message">
+												<img class="avatar-md" src="assets/img/avatars/doctor.jpg" data-toggle="tooltip" data-placement="top" title="Keith" alt="avatar">
+												<div class="text-main">
+													<div class="text-group">
+														<div class="text">
+															<div class="attachment">
+																<button class="btn attach"><i class="material-icons md-18">insert_drive_file</i></button>
+																<div class="file">
+																	<h5><a href="#">Tenacy Agreement.pdf</a></h5>
+																	<span>24kb Document</span>
+																</div>
+															</div>
+														</div>
+													</div>
+													<span>11:07 PM</span>
+												</div>
+											</div>
+											<div class="message me">
+												<div class="text-main">
+													<div class="text-group me">
+														<div class="text me">
+															<p>Hope you're all ready to tackle this great project. Let's smash some Brand Concept & Design!</p>
+														</div>
+													</div>
+													<span><i class="material-icons">check</i>10:21 PM</span>
+												</div>
+											</div>
+											<div class="message">
+												<img class="avatar-md" src="assets/img/avatars/doctor.jpg" data-toggle="tooltip" data-placement="top" title="Keith" alt="avatar">
+												<div class="text-main">
+													<div class="text-group">
+														<div class="text typing">
+															<div class="wave">
+																<span class="dot"></span>
+																<span class="dot"></span>
+																<span class="dot"></span>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="container">
+									<div class="col-md-12">
+										<div class="bottom">
+											<form class="position-relative w-100">
+												<textarea class="form-control" placeholder="Start typing for reply..." rows="1"></textarea>
+												<button class="btn emoticons"><i class="material-icons">insert_emoticon</i></button>
+												<button type="submit" class="btn send"><i class="material-icons">send</i></button>
+											</form>
+											<label>
+												<input type="file">
+												<span class="btn attach d-sm-block d-none"><i class="material-icons">attach_file</i></span>
+											</label> 
+										</div>
+									</div>
+								</div>
+							</div>
+							<!-- End of Chat -->
+							<!-- Start of Call -->
+							<div class="call" id="call1">
+								<div class="content">
+									<div class="container">
+										<div class="col-md-12">
+											<div class="inside">
+												<div class="panel">
+													<div class="participant">
+														<img class="avatar-xxl" src="assets/img/avatars/avatar-female-5.jpg" alt="avatar">
+														<span>Connecting</span>
+													</div>							
+													<div class="options">
+														<button class="btn option"><i class="material-icons md-30">mic</i></button>
+														<button class="btn option"><i class="material-icons md-30">videocam</i></button>
+														<button class="btn option call-end"><i class="material-icons md-30">call_end</i></button>
+														<button class="btn option"><i class="material-icons md-30">person_add</i></button>
+														<button class="btn option"><i class="material-icons md-30">volume_up</i></button>
+													</div>
+													<button class="btn back" name="1"><i class="material-icons md-24">chat</i></button>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<!-- End of Call -->
+						</div>
+						<!-- End of Babble -->
+						<!-- Start of Babble -->
+						<div class="babble tab-pane fade" id="list-empty" role="tabpanel" aria-labelledby="list-empty-list">
+							<!-- Start of Chat -->
+							<div class="chat" id="chat2">
+								<div class="top">
+									<div class="container">
+										<div class="col-md-12">
+											<div class="inside">
+												<a href="#"><img class="avatar-md" src="assets/img/avatars/avatar-female-2.jpg" data-toggle="tooltip" data-placement="top" title="Lean" alt="avatar"></a>
+												<div class="status">
+													<i class="material-icons offline">fiber_manual_record</i>
+												</div>
+												<div class="data">
+													<h5><a href="#">Lean Avent</a></h5>
+													<span>Inactive</span>
+												</div>
+												<button class="btn connect d-md-block d-none" name="2"><i class="material-icons md-30">phone_in_talk</i></button>
+												<button class="btn connect d-md-block d-none" name="2"><i class="material-icons md-36">videocam</i></button>
+												<button class="btn d-md-block d-none"><i class="material-icons md-30">info</i></button>
+												<div class="dropdown">
+													<button class="btn" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="material-icons md-30">more_vert</i></button>
+													<div class="dropdown-menu dropdown-menu-right">
+														<button class="dropdown-item connect" name="2"><i class="material-icons">phone_in_talk</i>Voice Call</button>
+														<button class="dropdown-item connect" name="2"><i class="material-icons">videocam</i>Video Call</button>
+														<hr>
+														<button class="dropdown-item"><i class="material-icons">clear</i>Clear History</button>
+														<button class="dropdown-item"><i class="material-icons">block</i>Block Contact</button>
+														<button class="dropdown-item"><i class="material-icons">delete</i>Delete Contact</button>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="content empty">
+									<div class="container">
+										<div class="col-md-12">
+											<div class="no-messages">
+												<i class="material-icons md-48">forum</i>
+												<p>Seems people are shy to start the chat. Break the ice send the first message.</p>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="container">
+									<div class="col-md-12">
+										<div class="bottom">
+											<form class="position-relative w-100">
+												<textarea class="form-control" placeholder="Start typing for reply..." rows="1"></textarea>
+												<button class="btn emoticons"><i class="material-icons">insert_emoticon</i></button>
+												<button type="submit" class="btn send"><i class="material-icons">send</i></button>
+											</form>
+											<label>
+												<input type="file">
+												<span class="btn attach d-sm-block d-none"><i class="material-icons">attach_file</i></span>
+											</label> 
+										</div>
+									</div>
+								</div>
+							</div>
+							<!-- End of Chat -->
+							<!-- Start of Call -->
+							<div class="call" id="call2">
+								<div class="content">
+									<div class="container">
+										<div class="col-md-12">
+											<div class="inside">
+												<div class="panel">
+													<div class="participant">
+														<img class="avatar-xxl" src="assets/img/avatars/avatar-female-2.jpg" alt="avatar">
+														<span>Connecting</span>
+													</div>							
+													<div class="options">
+														<button class="btn option"><i class="material-icons md-30">mic</i></button>
+														<button class="btn option"><i class="material-icons md-30">videocam</i></button>
+														<button class="btn option call-end"><i class="material-icons md-30">call_end</i></button>
+														<button class="btn option"><i class="material-icons md-30">person_add</i></button>
+														<button class="btn option"><i class="material-icons md-30">volume_up</i></button>
+													</div>
+													<button class="btn back" name="2"><i class="material-icons md-24">chat</i></button>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<!-- End of Call -->
+						</div>
+						<!-- End of Babble -->
+						<!-- Start of Babble -->
+						<div class="babble tab-pane fade" id="list-request" role="tabpanel" aria-labelledby="list-request-list">
+							<!-- Start of Chat -->
+							<div class="chat" id="chat3">
+								<div class="top">
+									<div class="container">
+										<div class="col-md-12">
+											<div class="inside">
+												<a href="#"><img class="avatar-md" src="assets/img/avatars/avatar-female-6.jpg" data-toggle="tooltip" data-placement="top" title="Louis" alt="avatar"></a>
+												<div class="status">
+													<i class="material-icons offline">fiber_manual_record</i>
+												</div>
+												<div class="data">
+													<h5><a href="#">Louis Martinez</a></h5>
+													<span>Inactive</span>
+												</div>
+												<button class="btn disabled d-md-block d-none" disabled><i class="material-icons md-30">phone_in_talk</i></button>
+												<button class="btn disabled d-md-block d-none" disabled><i class="material-icons md-36">videocam</i></button>
+												<button class="btn d-md-block disabled d-none" disabled><i class="material-icons md-30">info</i></button>
+												<div class="dropdown">
+													<button class="btn disabled" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" disabled><i class="material-icons md-30">more_vert</i></button>
+													<div class="dropdown-menu dropdown-menu-right">
+														<button class="dropdown-item"><i class="material-icons">phone_in_talk</i>Voice Call</button>
+														<button class="dropdown-item"><i class="material-icons">videocam</i>Video Call</button>
+														<hr>
+														<button class="dropdown-item"><i class="material-icons">clear</i>Clear History</button>
+														<button class="dropdown-item"><i class="material-icons">block</i>Block Contact</button>
+														<button class="dropdown-item"><i class="material-icons">delete</i>Delete Contact</button>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="content empty">
+									<div class="container">
+										<div class="col-md-12">
+											<div class="no-messages request">
+												<a href="#"><img class="avatar-xl" src="assets/img/avatars/avatar-female-6.jpg" data-toggle="tooltip" data-placement="top" title="Louis" alt="avatar"></a>
+												<h5>Louis Martinez would like to add you as a contact. <span>Hi Keith, I'd like to add you as a contact.</span></h5>
+												<div class="options">
+													<button class="btn button"><i class="material-icons">check</i></button>
+													<button class="btn button"><i class="material-icons">close</i></button>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="container">
+									<div class="col-md-12">
+										<div class="bottom">
+											<form class="position-relative w-100">
+												<textarea class="form-control" placeholder="Messaging unavailable" rows="1" disabled></textarea>
+												<button class="btn emoticons disabled" disabled><i class="material-icons">insert_emoticon</i></button>
+												<button class="btn send disabled" disabled><i class="material-icons">send</i></button>
+											</form>
+											<label>
+												<input type="file" disabled>
+												<span class="btn attach disabled d-sm-block d-none"><i class="material-icons">attach_file</i></span>
+											</label> 
+										</div>
+									</div>
+								</div>
+							</div>
+							<!-- End of Chat -->
+						</div>
+						<!-- End of Babble -->
+					</div>
+				</div>
+			</div> <!-- Layout -->
+		</main>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+			integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+			crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+		<script src="assets/js/vendor/popper.min.js"></script>
+		<script src="assets/js/mediq.min.js"></script>
+		<script src="assets/js/bootstrap.min.js"></script>
+		<script>
+			
+				$(document).ready(function () {
+					$("#imageInput").change(function () {
+						const file = this.files[0];
+						if (file) {
+							const reader = new FileReader();
+							reader.onload = function (e) {
+								$("#imagePreview").attr("src", e.target.result).show();
+							};
+							reader.readAsDataURL(file);
+						}
+					});
+				});
+
+			
+			function scrollToBottom(el) { el.scrollTop = el.scrollHeight; }
+			scrollToBottom(document.getElementById('content'));
+		</script>
+	</body>
+
+</html>
